@@ -1,6 +1,12 @@
 
 # coding: utf-8
 
+# In[ ]:
+
+
+
+# coding: utf-8
+
 # In[5]:
 
 
@@ -14,12 +20,18 @@ def main(filename):
     txtfile = open(filename)
     lines = txtfile.readlines()
     all_words = []
+    
     for line in lines:
         words = line.split()
-        for word in words: 
+    
+    
+        for word in words:
             word = word.strip(string.punctuation)
-            if word !=(" "):
-                all_words.append(word)   
+            word = word.strip()
+            if word !='':
+                all_words.append(word)
+            else:
+                continue
     from collections import Counter
     counter = Counter(all_words)
     with open("wordcount.csv", "w") as csv_file:
@@ -36,4 +48,5 @@ def main(filename):
 
 if __name__ == '__main__':
     main("i_have_a_dream.txt")
+
 
